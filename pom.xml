@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -49,25 +48,25 @@
     </dependencies>
 
     <build>
-        <finalName>java-ee-practice</finalName>
+        <finalName>auto-service</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.mybatis.generator</groupId>
-                    <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>1.4.0</version>
-                    <configuration>
-                        <contexts>PlayersDB</contexts>
-                        <verbose>true</verbose>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>Generate MyBatis Artifacts</id>
-                            <goals>
-                                <goal>generate</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+<!--                    <groupId>org.mybatis.generator</groupId>-->
+<!--                    <artifactId>mybatis-generator-maven-plugin</artifactId>-->
+<!--                    <version>1.4.0</version>-->
+<!--                    <configuration>-->
+<!--                        <contexts>AutoServiceDB</contexts>-->
+<!--                        <verbose>true</verbose>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <id>Generate MyBatis Artifacts</id>-->
+<!--                            <goals>-->
+<!--                                <goal>generate</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
                     <dependencies>
                         <dependency>
                             <groupId>com.h2database</groupId>

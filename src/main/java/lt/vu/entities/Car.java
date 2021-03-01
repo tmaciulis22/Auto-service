@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Player.findAll", query = "select c from Car as c")
+        @NamedQuery(name = "Car.findAll", query = "select c from Car as c")
 })
 @Table(name = "CAR")
 @Getter @Setter
