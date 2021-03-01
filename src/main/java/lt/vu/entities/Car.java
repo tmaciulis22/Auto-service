@@ -11,7 +11,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Player.findAll", query = "select c from Car as c")
 })
-@Table(name = "MECHANIC")
+@Table(name = "CAR")
 @Getter @Setter
 public class Car {
 
