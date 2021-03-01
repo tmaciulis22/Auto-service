@@ -10,13 +10,13 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "ServicePoint.findAll", query = "select s from ServicePoint as s")
+        @NamedQuery(name = "Service.findAll", query = "select s from Service as s")
 })
-@Table(name = "SERVICEPOINT")
+@Table(name = "SERVICE")
 @Getter @Setter
-public class ServicePoint {
+public class Service {
 
-    public ServicePoint() { }
+    public Service() { }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +26,6 @@ public class ServicePoint {
     @Column(name = "ADDRESS")
     private String address;
 
-    @OneToMany(mappedBy = "servicepoint")
+    @OneToMany(mappedBy = "service")
     private List<Mechanic> mechanics = new ArrayList<>();
 }

@@ -25,6 +25,6 @@ public class Car {
 
     private String model;
 
-    @ManyToMany(mappedBy="mechanics")
+    @ManyToMany
     public List<Mechanic> mechanics = new ArrayList<>();
 }

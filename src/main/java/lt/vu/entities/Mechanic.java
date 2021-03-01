@@ -27,8 +27,8 @@ public class Mechanic {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="SERVICEPOINT_ID")
-    private ServicePoint servicePoint;
+    @JoinColumn(name="SERVICE_ID")
+    private Service service;
 
     @ManyToMany
     @JoinTable(name="CAR")

@@ -8,7 +8,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Auto Service Management App</name>
+    <name>AutoService Management App</name>
+    <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,23 +36,23 @@
             <version>1.18.10</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-cdi</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis</artifactId>-->
+<!--            <version>3.5.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis-cdi</artifactId>-->
+<!--            <version>1.1.1</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
         <finalName>auto-service</finalName>
         <pluginManagement>
             <plugins>
-                <plugin>
+<!--                <plugin>-->
 <!--                    <groupId>org.mybatis.generator</groupId>-->
 <!--                    <artifactId>mybatis-generator-maven-plugin</artifactId>-->
 <!--                    <version>1.4.0</version>-->
@@ -67,14 +68,14 @@
 <!--                            </goals>-->
 <!--                        </execution>-->
 <!--                    </executions>-->
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.h2database</groupId>
-                            <artifactId>h2</artifactId>
-                            <version>1.4.196</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>com.h2database</groupId>-->
+<!--                            <artifactId>h2</artifactId>-->
+<!--                            <version>1.4.196</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
+<!--                </plugin>-->
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>

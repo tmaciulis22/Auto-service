@@ -4,15 +4,15 @@ import lombok.Setter;
 import lt.vu.entities.Mechanic;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @ApplicationScoped
 public class MechanicDAO {
 
-    @PersistenceContext
     @Setter
+    @Inject
     private EntityManager em;
 
     public List<Mechanic> loadAll() {

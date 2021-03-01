@@ -4,15 +4,15 @@ import lombok.Setter;
 import lt.vu.entities.Car;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @ApplicationScoped
 public class CarDAO {
 
-    @PersistenceContext
     @Setter
+    @Inject
     private EntityManager em;
 
     public List<Car> loadAll() {
