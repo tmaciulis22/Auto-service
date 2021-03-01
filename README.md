@@ -1,2 +1,2 @@
 # Auto service
-Auto service web app created during Software Development course at Vilnius university
+Auto service management web app created during Software Development course at Vilnius university
