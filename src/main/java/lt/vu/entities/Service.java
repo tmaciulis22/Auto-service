@@ -23,8 +23,8 @@ public class Service {
     private Integer id;
 
     @Size(max = 50)
-    @Column(name = "ADDRESS")
-    private String address;
+    @Column(name = "NAME")
+    private String name;
 
     @OneToMany(mappedBy = "service")
     private List<Mechanic> mechanics = new ArrayList<>();

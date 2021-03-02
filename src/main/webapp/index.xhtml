@@ -6,7 +6,15 @@
 >
 <h:head/>
 <h:body>
-    <h2>AutoService</h2>
-
+    <h2>Services:</h2>
+    <ol>
+        <ui:repeat value="#{services.serviceList}" var="service">
+            <li><h:link value="#{service.name}" outcome="service?serviceId=#{service.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{services.newService.name}" required="true" />
+        <h:commandButton value="Add new service" action="#{services.addService}" />
+    </h:form>
 </h:body>
 </html>

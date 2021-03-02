@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+    <h2>#{serviceDetails.service.name}</h2>
+    <ol>
+        <ui:repeat value="#{serviceDetails.service.mechanics}" var="mechanic">
+            <li><h:link value="#{mechanic.name}" outcome="mechanic?id=#{mechanic.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{serviceDetails.newMechanic.name}" required="true" />
+        <h:commandButton value="Add new mechanic" action="#{serviceDetails.addMechanic}">
+            <f:param name="serviceId" value="#{serviceDetails.service.id}" />
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>

@@ -3,10 +3,12 @@ package lt.vu.persistence;
 import lombok.Setter;
 import lt.vu.entities.Service;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@ApplicationScoped
 public class ServiceDAO {
 
     @Inject

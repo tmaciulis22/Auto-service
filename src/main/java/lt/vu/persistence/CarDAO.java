@@ -1,7 +1,7 @@
 package lt.vu.persistence;
 
-import lombok.Setter;
 import lt.vu.entities.Car;
+import lombok.Setter;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
