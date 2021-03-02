@@ -10,4 +10,8 @@ public class NameFixComponent {
     public void fixName(Mechanic mechanic) {
         mechanic.setName(mechanic.getName().replaceAll("[^A-Za-z]", ""));
     }
+
+    public void fixName(lt.vu.mybatis.model.Mechanic mechanic) {
+        mechanic.setName(mechanic.getName().replaceAll("[^A-Za-z]", ""));
+    }
 }

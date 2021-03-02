@@ -1,9 +1,9 @@
 package lt.vu.usecases;
 
-import lt.vu.entities.Service;
-import lt.vu.persistence.ServiceDAO;
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.mybatis.dao.ServiceMapper;
+import lt.vu.mybatis.model.Service;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -12,10 +12,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Model
-public class Services {
-
+public class ServicesMyBatis {
     @Inject
-    private ServiceDAO serviceDAO;
+    private ServiceMapper serviceMapper;
 
     @Getter
     private List<Service> serviceList;
@@ -25,12 +24,12 @@ public class Services {
 
     @PostConstruct
     public void init() {
-        this.serviceList = serviceDAO.loadAll();
+        this.serviceList = serviceMapper.selectAll();
     }
 
     @Transactional
     public String addService() {
-        this.serviceDAO.persist(newService);
-        return "index?faces-redirect=true";
+        serviceMapper.insert(newService);
+        return "/mybatis/services?faces-redirect=true";
     }
 }

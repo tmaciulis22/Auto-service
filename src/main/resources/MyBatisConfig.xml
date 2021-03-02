@@ -17,8 +17,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/ServiceMapper.xml"/>
-        <mapper resource="mybatis.xml/MechanicMapper.xml"/>
-        <mapper resource="mybatis.xml/ServiceMapper.xml"/>
+        <mapper resource="mybatis/xml/ServiceMapper.xml"/>
+        <mapper resource="mybatis/xml/MechanicMapper.xml"/>
+        <mapper resource="mybatis/xml/ServiceMapper.xml"/>
     </mappers>
 </configuration>
