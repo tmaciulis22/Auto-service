@@ -47,7 +47,7 @@ public class ServiceDetailsMyBatis {
         this.mechanicList = mechanicMapper
                 .selectAll()
                 .stream()
-                .filter(mechanic -> mechanic.getServiceId() == this.service.getId())
+                .filter(mechanic -> mechanic.getServiceId().equals(this.service.getId()))
                 .collect(Collectors.toList());
     }
 
