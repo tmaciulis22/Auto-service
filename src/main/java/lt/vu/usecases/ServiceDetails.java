@@ -2,6 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.NameFixComponent;
 import lt.vu.entities.Mechanic;
 import lt.vu.entities.Service;
 import lt.vu.persistence.MechanicDAO;
@@ -12,7 +13,6 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Map;
 
 @Model
@@ -30,6 +30,9 @@ public class ServiceDetails {
     @Getter @Setter
     private Mechanic newMechanic = new Mechanic();
 
+    @Inject
+    private NameFixComponent nameFixComponent;
+
     @PostConstruct
     public void init() {
         Map<String, String> requestParameters =
@@ -40,6 +43,7 @@ public class ServiceDetails {
 
     @Transactional
     public String addMechanic() {
+        nameFixComponent.fixName(newMechanic);
         this.newMechanic.setService(this.service);
         this.mechanicDAO.persist(newMechanic);
         return "service?faces-redirect=true&serviceId=" + this.service.getId();

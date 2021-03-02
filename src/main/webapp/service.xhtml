@@ -6,10 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
-    <h2>#{serviceDetails.service.name}</h2>
+    <h2>#{serviceDetails.service.name}:</h2>
     <ol>
         <ui:repeat value="#{serviceDetails.service.mechanics}" var="mechanic">
-            <li><h:link value="#{mechanic.name}" outcome="mechanic?id=#{mechanic.id}" /></li>
+            <li>#{mechanic.name}</li>
         </ui:repeat>
     </ol>
     <h:form>
@@ -18,5 +18,6 @@
             <f:param name="serviceId" value="#{serviceDetails.service.id}" />
         </h:commandButton>
     </h:form>
+    <h:link outcome="index" value="Services"/>
 </h:body>
 </html>
