@@ -26,7 +26,7 @@ public class Service {
     private Integer version;
 
     @Size(max = 50)
-    @Column(name = "NAME")
+    @Column
     private String name;
 
     @OneToMany(mappedBy = "service")

@@ -23,7 +23,7 @@ public class Mechanic {
     private Integer id;
 
     @Size(max = 50)
-    @Column(name = "NAME")
+    @Column
     private String name;
 
     @ManyToOne

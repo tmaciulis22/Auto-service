@@ -21,8 +21,10 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "BRAND")
     private String make;
 
+    @Column
     private String model;
 
     @ManyToMany
