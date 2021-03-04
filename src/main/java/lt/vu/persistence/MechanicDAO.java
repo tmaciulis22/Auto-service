@@ -20,7 +20,7 @@ public class MechanicDAO {
     }
 
     public void persist(Mechanic mechanic){
-        this.em.persist(mechanic);
+        em.persist(mechanic);
     }
 
     public Mechanic findOne(Integer id) {

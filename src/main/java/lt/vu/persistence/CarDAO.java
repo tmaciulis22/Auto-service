@@ -20,7 +20,7 @@ public class CarDAO {
     }
 
     public void persist(Car car){
-        this.em.persist(car);
+        em.persist(car);
     }
 
     public Car findOne(Integer id) {

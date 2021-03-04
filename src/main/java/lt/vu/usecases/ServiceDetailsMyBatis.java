@@ -43,19 +43,19 @@ public class ServiceDetailsMyBatis {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer serviceId = Integer.parseInt(requestParameters.get("serviceId"));
-        this.service = serviceMapper.selectByPrimaryKey(serviceId);
-        this.mechanicList = mechanicMapper
+        service = serviceMapper.selectByPrimaryKey(serviceId);
+        mechanicList = mechanicMapper
                 .selectAll()
                 .stream()
-                .filter(mechanic -> mechanic.getServiceId().equals(this.service.getId()))
+                .filter(mechanic -> mechanic.getServiceId().equals(service.getId()))
                 .collect(Collectors.toList());
     }
 
     @Transactional
     public String addMechanic() {
         nameFixComponent.fixName(newMechanic);
-        this.newMechanic.setServiceId(this.service.getId());
-        this.mechanicMapper.insert(newMechanic);
-        return "service?faces-redirect=true&serviceId=" + this.service.getId();
+        newMechanic.setServiceId(this.service.getId());
+        mechanicMapper.insert(newMechanic);
+        return "service?faces-redirect=true&serviceId=" + service.getId();
     }
 }
