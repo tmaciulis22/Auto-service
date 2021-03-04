@@ -22,6 +22,9 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Version
+    private Integer version;
+
     @Size(max = 50)
     @Column(name = "NAME")
     private String name;

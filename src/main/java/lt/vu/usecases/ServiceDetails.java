@@ -9,10 +9,13 @@ import lt.vu.persistence.MechanicDAO;
 import lt.vu.persistence.ServiceDAO;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.OptimisticLockException;
 import javax.transaction.Transactional;
+import javax.transaction.UserTransaction;
 import java.util.Map;
 
 @Model
@@ -24,11 +27,16 @@ public class ServiceDetails {
     @Inject
     private MechanicDAO mechanicDAO;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Service service;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Mechanic newMechanic = new Mechanic();
+
+    @Resource
+    private UserTransaction transaction;
 
     @Inject
     private NameFixComponent nameFixComponent;
@@ -38,14 +46,28 @@ public class ServiceDetails {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer serviceId = Integer.parseInt(requestParameters.get("serviceId"));
-        this.service = serviceDAO.findOne(serviceId);
+        service = serviceDAO.findOne(serviceId);
     }
 
     @Transactional
     public String addMechanic() {
         nameFixComponent.fixName(newMechanic);
-        this.newMechanic.setService(this.service);
-        this.mechanicDAO.persist(newMechanic);
-        return "service?faces-redirect=true&serviceId=" + this.service.getId();
+        newMechanic.setService(service);
+        mechanicDAO.persist(newMechanic);
+        return "service?faces-redirect=true&serviceId=" + service.getId();
+    }
+
+    @Transactional
+    public String updateServiceName(Boolean sleep) {
+        serviceDAO.update(this.service);
+        if (sleep) {
+            try {
+                Thread.sleep(5000);
+                serviceDAO.flush();
+            } catch (OptimisticLockException e) {
+                return "service?faces-redirect=true&serviceId=" + service.getId() + "&error=optimistic-lock-exception";
+            } catch (Exception ignored) { }
+        }
+        return "index?faces-redirect=true";
     }
 }

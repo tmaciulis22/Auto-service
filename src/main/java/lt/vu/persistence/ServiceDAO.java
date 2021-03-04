@@ -19,9 +19,11 @@ public class ServiceDAO {
         return em.createNamedQuery("Service.findAll", Service.class).getResultList();
     }
 
-    public void persist(Service service){
-        this.em.persist(service);
-    }
+    public void persist(Service service) { em.persist(service); }
+
+    public Service update(Service service) { return em.merge(service); }
+
+    public void flush() { em.flush(); }
 
     public Service findOne(Integer id) {
         return em.find(Service.class, id);

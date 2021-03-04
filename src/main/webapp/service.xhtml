@@ -13,11 +13,26 @@
         </ui:repeat>
     </ol>
     <h:form>
-        <h:inputText value="#{serviceDetails.newMechanic.name}" required="true" />
+        <h:inputText value="#{serviceDetails.newMechanic.name}" required="true"/>
         <h:commandButton value="Add new mechanic" action="#{serviceDetails.addMechanic}">
-            <f:param name="serviceId" value="#{serviceDetails.service.id}" />
+            <f:param name="serviceId" value="#{serviceDetails.service.id}"/>
         </h:commandButton>
     </h:form>
+    <br/>
+    <h:form>
+        <h:outputText value="Service's name: "/>
+        <h:inputText value="#{serviceDetails.service.name}" required="true"/>
+        <h:commandButton value="Update with sleep" action="#{serviceDetails.updateServiceName(true)}">
+            <f:param name="serviceId" value="#{serviceDetails.service.id}" />
+        </h:commandButton>
+        <h:commandButton value="Update" action="#{serviceDetails.updateServiceName(false)}">
+            <f:param name="serviceId" value="#{serviceDetails.service.id}" />
+        </h:commandButton>
+        <br />
+        <h:outputText value="Name was already modified by other user. Try again later..."
+                      rendered="#{param['error'] == 'optimistic-lock-exception'}"/>
+    </h:form>
+    <br/>
     <h:link outcome="index" value="Services"/>
 </h:body>
 </html>
