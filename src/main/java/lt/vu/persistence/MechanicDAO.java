@@ -19,7 +19,7 @@ public class MechanicDAO {
         return em.createNamedQuery("Mechanic.findAll", Mechanic.class).getResultList();
     }
 
-    public void persist(Mechanic mechanic){
+    public void persist(Mechanic mechanic) {
         em.persist(mechanic);
     }
 

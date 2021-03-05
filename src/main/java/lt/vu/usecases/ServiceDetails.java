@@ -9,13 +9,11 @@ import lt.vu.persistence.MechanicDAO;
 import lt.vu.persistence.ServiceDAO;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.OptimisticLockException;
 import javax.transaction.Transactional;
-import javax.transaction.UserTransaction;
 import java.util.Map;
 
 @Model
@@ -31,12 +29,8 @@ public class ServiceDetails {
     @Setter
     private Service service;
 
-    @Getter
-    @Setter
+    @Getter @Setter
     private Mechanic newMechanic = new Mechanic();
-
-    @Resource
-    private UserTransaction transaction;
 
     @Inject
     private NameFixComponent nameFixComponent;

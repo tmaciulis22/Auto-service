@@ -33,6 +33,17 @@
                       rendered="#{param['error'] == 'optimistic-lock-exception'}"/>
     </h:form>
     <br/>
+    <h:form>
+        <h:outputText value="#{findNewMechanic.findingTaskStatus}" />
+        <h:commandButton
+                value="Find new mechanic"
+                disabled="#{findNewMechanic.findingInProgress}"
+                action="#{findNewMechanic.findNewMechanic}"
+        >
+            <f:param name="serviceId" value="#{serviceDetails.service.id}" />
+        </h:commandButton>
+    </h:form>
+    <br/>
     <h:link outcome="index" value="Services"/>
 </h:body>
 </html>
