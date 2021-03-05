@@ -1,11 +1,13 @@
-package lt.vu;
+package lt.vu.namefix;
 
 import lt.vu.entities.Mechanic;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
+@Named
 @RequestScoped
-public class NameFixComponent {
+public class NameFixComponent implements NameFix {
 
     public void fixName(Mechanic mechanic) {
         mechanic.setName(mechanic.getName().replaceAll("[^A-Za-z]", ""));
@@ -15,3 +17,4 @@ public class NameFixComponent {
         mechanic.setName(mechanic.getName().replaceAll("[^A-Za-z]", ""));
     }
 }
+

@@ -2,7 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
-import lt.vu.NameFixComponent;
+import lt.vu.namefix.NameFix;
 import lt.vu.entities.Mechanic;
 import lt.vu.entities.Service;
 import lt.vu.persistence.MechanicDAO;
@@ -33,7 +33,7 @@ public class ServiceDetails {
     private Mechanic newMechanic = new Mechanic();
 
     @Inject
-    private NameFixComponent nameFixComponent;
+    private NameFix nameFixComponent;
 
     @PostConstruct
     public void init() {
