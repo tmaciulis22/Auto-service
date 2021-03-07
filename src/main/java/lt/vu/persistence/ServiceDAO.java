@@ -21,7 +21,7 @@ public class ServiceDAO {
 
     public void flush() { em.flush(); }
 
-    public void create(Service service){
+    public void create(Service service) {
         this.em.persist(service);
     }
 
