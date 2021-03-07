@@ -2,6 +2,7 @@ package lt.vu.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
+import lt.vu.interceptor.Logged;
 import lt.vu.nameFix.NameFix;
 import lt.vu.entities.Mechanic;
 import lt.vu.entities.Service;
@@ -43,6 +44,7 @@ public class ServiceDetails {
         service = serviceDAO.findOne(serviceId);
     }
 
+    @Logged
     @Transactional
     public String addMechanic() {
         nameFixComponent.fixName(newMechanic);

@@ -6,9 +6,10 @@
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
         bean-discovery-mode="annotated">
 
-<!--    <interceptors>-->
-<!--        <class>lt.vu.interceptors.MethodLogger</class>-->
-<!--    </interceptors>-->
+    <interceptors>
+        <class>lt.vu.interceptor.LoggingInterceptor</class>
+    </interceptors>
+
     <alternatives>
         <class>lt.vu.nameFix.NameFixComponentAlt</class>
         <class>lt.vu.mechanicFinder.MechanicFinderExtendedComponent</class>
