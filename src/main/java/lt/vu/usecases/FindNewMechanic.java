@@ -1,6 +1,6 @@
 package lt.vu.usecases;
 
-import lt.vu.MechanicFinderComponent;
+import lt.vu.mechanicFinder.MechanicFinder;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
@@ -16,18 +16,16 @@ import java.util.concurrent.ExecutionException;
 public class FindNewMechanic implements Serializable {
 
     @Inject
-    private MechanicFinderComponent mechanicFinderComponent;
+    private MechanicFinder mechanicFinderComponent;
 
     private CompletableFuture<String> findingMechanicTask = null;
 
-    public String findNewMechanic() {
+    public String findNewMechanic() throws InterruptedException {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         int serviceId = Integer.parseInt(requestParameters.get("serviceId"));
 
-        findingMechanicTask = CompletableFuture.supplyAsync(() ->
-            mechanicFinderComponent.findNewMechanic()
-        );
+        findingMechanicTask = mechanicFinderComponent.findNewMechanicAsync();
 
         return "service?faces-redirect=true&serviceId=" + serviceId;
     }

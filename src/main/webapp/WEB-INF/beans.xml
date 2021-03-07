@@ -10,6 +10,7 @@
 <!--        <class>lt.vu.interceptors.MethodLogger</class>-->
 <!--    </interceptors>-->
     <alternatives>
-        <class>lt.vu.namefix.NameFixComponentAlt</class>
+        <class>lt.vu.nameFix.NameFixComponentAlt</class>
+        <class>lt.vu.mechanicFinder.MechanicFinderExtendedComponent</class>
     </alternatives>
 </beans>

@@ -1,4 +1,4 @@
-package lt.vu.namefix;
+package lt.vu.nameFix;
 
 import lt.vu.entities.Mechanic;
 

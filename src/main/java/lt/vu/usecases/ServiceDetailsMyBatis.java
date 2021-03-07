@@ -6,7 +6,7 @@ import lt.vu.mybatis.dao.MechanicMapper;
 import lt.vu.mybatis.dao.ServiceMapper;
 import lt.vu.mybatis.model.Mechanic;
 import lt.vu.mybatis.model.Service;
-import lt.vu.namefix.NameFix;
+import lt.vu.nameFix.NameFix;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
