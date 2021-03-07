@@ -10,8 +10,12 @@
         <class>lt.vu.interceptor.LoggingInterceptor</class>
     </interceptors>
 
+    <decorators>
+        <class>lt.vu.decorator.NameFixDecorator</class>
+    </decorators>
+
     <alternatives>
-        <class>lt.vu.nameFix.NameFixComponentAlt</class>
+<!--        <class>lt.vu.nameFix.NameFixComponentAlt</class>-->
         <class>lt.vu.mechanicFinder.MechanicFinderExtendedComponent</class>
     </alternatives>
 </beans>
