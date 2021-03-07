@@ -15,15 +15,19 @@ public class MechanicDAO {
     @Inject
     private EntityManager em;
 
-    public List<Mechanic> loadAll() {
-        return em.createNamedQuery("Mechanic.findAll", Mechanic.class).getResultList();
+    public List<Mechanic> readAll() {
+        return em.createNamedQuery("Mechanic.readAll", Mechanic.class).getResultList();
     }
 
-    public void persist(Mechanic mechanic) {
+    public void create(Mechanic mechanic){
         em.persist(mechanic);
     }
 
-    public Mechanic findOne(Integer id) {
+    public Mechanic read(Integer id) {
         return em.find(Mechanic.class, id);
     }
+
+    public Mechanic update(Mechanic mechanic) { return em.merge(mechanic); }
+
+    public void delete(Integer id) { em.remove(read(id)); }
 }

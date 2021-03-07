@@ -41,7 +41,7 @@ public class ServiceDetails {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer serviceId = Integer.parseInt(requestParameters.get("serviceId"));
-        service = serviceDAO.findOne(serviceId);
+        service = serviceDAO.read(serviceId);
     }
 
     @Logged
@@ -49,7 +49,7 @@ public class ServiceDetails {
     public String addMechanic() {
         nameFixComponent.fixName(newMechanic);
         newMechanic.setService(service);
-        mechanicDAO.persist(newMechanic);
+        mechanicDAO.create(newMechanic);
         return "service?faces-redirect=true&serviceId=" + service.getId();
     }
 

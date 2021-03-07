@@ -15,17 +15,21 @@ public class ServiceDAO {
     @Setter
     private EntityManager em;
 
-    public List<Service> loadAll() {
-        return em.createNamedQuery("Service.findAll", Service.class).getResultList();
+    public List<Service> readAll() {
+        return em.createNamedQuery("Service.readAll", Service.class).getResultList();
     }
-
-    public void persist(Service service) { em.persist(service); }
-
-    public Service update(Service service) { return em.merge(service); }
 
     public void flush() { em.flush(); }
 
-    public Service findOne(Integer id) {
+    public void create(Service service){
+        this.em.persist(service);
+    }
+
+    public Service read(Integer id) {
         return em.find(Service.class, id);
     }
+
+    public Service update(Service service) { return em.merge(service); }
+
+    public void delete(Integer id) { em.remove(read(id)); }
 }

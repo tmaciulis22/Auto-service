@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Service.findAll", query = "select s from Service as s")
+        @NamedQuery(name = "Service.readAll", query = "select s from Service as s")
 })
 @Table(name = "SERVICE")
 @Getter @Setter

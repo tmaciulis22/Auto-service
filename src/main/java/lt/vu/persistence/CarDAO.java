@@ -15,15 +15,19 @@ public class CarDAO {
     @Inject
     private EntityManager em;
 
-    public List<Car> loadAll() {
-        return em.createNamedQuery("Car.findAll", Car.class).getResultList();
+    public List<Car> readAll() {
+        return em.createNamedQuery("Car.readAll", Car.class).getResultList();
     }
 
-    public void persist(Car car){
+    public void create(Car car){
         em.persist(car);
     }
 
-    public Car findOne(Integer id) {
+    public Car read(Integer id) {
         return em.find(Car.class, id);
     }
+
+    public Car update(Car car) { return em.merge(car); }
+
+    public void delete(Integer id) { em.remove(read(id)); }
 }
