@@ -38,14 +38,14 @@ public class ServiceDetails {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer serviceId = Integer.parseInt(requestParameters.get("serviceId"));
-        this.service = serviceDAO.findOne(serviceId);
+        this.service = serviceDAO.read(serviceId);
     }
 
     @Transactional
     public String addMechanic() {
         nameFixComponent.fixName(newMechanic);
         this.newMechanic.setService(this.service);
-        this.mechanicDAO.persist(newMechanic);
+        this.mechanicDAO.create(newMechanic);
         return "service?faces-redirect=true&serviceId=" + this.service.getId();
     }
 }

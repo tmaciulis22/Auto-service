@@ -25,12 +25,12 @@ public class Services {
 
     @PostConstruct
     public void init() {
-        serviceList = serviceDAO.loadAll();
+        serviceList = serviceDAO.readAll();
     }
 
     @Transactional
     public String addService() {
-        serviceDAO.persist(newService);
+        serviceDAO.create(newService);
         return "index?faces-redirect=true";
     }
 }
