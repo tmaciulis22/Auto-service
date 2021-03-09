@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -28,4 +29,17 @@ public class Service {
 
     @OneToMany(mappedBy = "service")
     private List<Mechanic> mechanics = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Service service = (Service) o;
+        return id.equals(service.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

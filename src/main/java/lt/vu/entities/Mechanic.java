@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -33,4 +34,17 @@ public class Mechanic {
     @ManyToMany
     @JoinTable(name="CAR")
     private List<Car> cars = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic mechanic = (Mechanic) o;
+        return id.equals(mechanic.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
