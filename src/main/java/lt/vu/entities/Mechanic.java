@@ -1,5 +1,6 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,7 @@ import java.util.Objects;
 })
 @Table(name = "MECHANIC")
 @Getter @Setter
+@EqualsAndHashCode(of={"id"})
 public class Mechanic {
 
     public Mechanic() { }
@@ -34,17 +36,4 @@ public class Mechanic {
     @ManyToMany
     @JoinTable(name="CAR")
     private List<Car> cars = new ArrayList<>();
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Mechanic mechanic = (Mechanic) o;
-        return id.equals(mechanic.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
