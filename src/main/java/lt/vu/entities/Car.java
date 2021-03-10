@@ -30,6 +30,6 @@ public class Car {
     @Column
     private String model;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "cars")
     public List<Mechanic> mechanics = new ArrayList<>();
 }
