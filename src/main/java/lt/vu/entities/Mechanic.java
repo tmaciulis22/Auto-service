@@ -34,6 +34,6 @@ public class Mechanic {
     private Service service;
 
     @ManyToMany
-    @JoinTable(name="CAR")
+    @JoinTable(name="MECHANIC_CAR")
     private List<Car> cars = new ArrayList<>();
 }
