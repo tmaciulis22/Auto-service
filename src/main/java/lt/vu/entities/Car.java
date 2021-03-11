@@ -1,11 +1,13 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -13,6 +15,7 @@ import java.util.List;
 })
 @Table(name = "CAR")
 @Getter @Setter
+@EqualsAndHashCode(of={"id"})
 public class Car {
 
     public Car() { }
@@ -27,6 +30,6 @@ public class Car {
     @Column
     private String model;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "cars")
     public List<Mechanic> mechanics = new ArrayList<>();
 }

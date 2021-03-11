@@ -1,5 +1,6 @@
 package lt.vu.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -14,6 +16,7 @@ import java.util.List;
 })
 @Table(name = "MECHANIC")
 @Getter @Setter
+@EqualsAndHashCode(of={"id"})
 public class Mechanic {
 
     public Mechanic() { }
@@ -31,6 +34,6 @@ public class Mechanic {
     private Service service;
 
     @ManyToMany
-    @JoinTable(name="CAR")
+    @JoinTable(name="MECHANIC_CAR")
     private List<Car> cars = new ArrayList<>();
 }
